@@ -1,8 +1,53 @@
 <html>
-    <head>
-        <title>Animal Game page</title>
-    </head>
-    <body>
-        Animal Game By Rakesh
-    </body>
+
+<head>
+    <title>Animal Game page</title>
+</head>
+
+<body>
+    Animal Game By Rakesh
+    <form>
+        <label for="hiddenAnimal">The hidden animal type:</label>
+        <input type="password" id="hiddenAnimal" value="Chicken">
+
+        <br>
+
+        <label for="guessAnimal">Guess the animal:</label>
+        <input type="text" id="guessAnimal">
+
+        <br>
+
+        <button type="button" onclick="checkAnimal()">Check the guess</button>
+    </form>
+
+    <p id="results"></p>
+
+    <script>
+        
+        let wrong = 0;
+        let correct = 0;
+
+       
+        function checkAnimal() {
+            
+            const hiddenAnimalValue = document.getElementById('hiddenAnimal').value;
+            const guessAnimalValue = document.getElementById('guessAnimal').value;
+
+            
+            if (hiddenAnimalValue === guessAnimalValue) {
+                correct++;
+                alert("Ruff ruff");
+            } else {
+                wrong++;
+                alert("Grrr");
+            }
+
+            // Update the result display
+            document.getElementById('results').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
+        }
+    </script>
+
+</body>
+</body>
+
 </html>
