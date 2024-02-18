@@ -47,29 +47,30 @@
                 }
             </script>
 
-            <div class="container">
-                <img src="mirinda.jpg" alt="mirinda" id="img" width="150px" onclick="selectImage()">
-            </div>
-           
 
+            <div id="imageContainer">
+                <img id="drinkImage" src="thums up.jpg" width="150" height="150" onclick="selectImage()">
+            </div>
             <script>
                 let useImage = 1;
+
                 function selectImage() {
+                    const image = document.getElementById('drinkImage');
                     switch (useImage) {
                         case 1:
-                            document.getElementById("img").src = "mirinda.jpg";
+                            image.src = 'thums up.jpg';
                             useImage = 2;
                             break;
                         case 2:
-                            document.getElementById("img").src = "thumsup.jpg";
+                            image.src = 'mirinda.jpg';
                             useImage = 3;
                             break;
                         case 3:
-                            document.getElementById("img").src = "appyfizz.jpg";
+                            image.src = 'appy fizz.jpg';
                             useImage = 1;
                             break;
                         default:
-                        break;
+                            break;
                     }
                 }
             </script>
