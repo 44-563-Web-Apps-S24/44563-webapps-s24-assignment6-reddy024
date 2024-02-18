@@ -48,24 +48,32 @@
             </script>
 
             <div class="container">
-                <img src="mirinda.jp" alt="mirinda" width="150px" onclick="selectImage()">
+                <img src="mirinda.jpg" alt="mirinda" id="img" width="150px" onclick="selectImage()">
             </div>
-            <script>
-                function selectImage() {
-                    alert("You have clicked Image");
-                }
-            </script>
-            <br>
+           
+
             <script>
                 let useImage = 1;
-                function selectImage(){
-                    switch(useImage) {
+                function selectImage() {
+                    switch (useImage) {
                         case 1:
-                            document.getElementById('selectImage').src = "mirinda.jpg";
-                            useimage = 2;
+                            document.getElementById("img").src = "mirinda.jpg";
+                            useImage = 2;
                             break;
+                        case 2:
+                            document.getElementById("img").src = "thumsup.jpg";
+                            useImage = 3;
+                            break;
+                        case 3:
+                            document.getElementById("img").src = "appyfizz.jpg";
+                            useImage = 1;
+                            break;
+                        default:
+                        break;
                     }
                 }
             </script>
+            <button onclick="selectImage()">Change Image</button>
 </body>
+
 </html>
