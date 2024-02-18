@@ -6,55 +6,77 @@
 
 <body>
     <h1>Animal Game By Rakesh Kusa<h1>
-        <h2>Guess The Animal</h2>
-    <form>
-        <label for="hiddenAnimal">The hidden animal type:</label>
-        <input type="password" id="hiddenAnimal" value="Chicken">
+            <h2>Guess The Animal</h2>
+            <form>
+                <label for="hiddenAnimal">The hidden animal type:</label>
+                <input type="password" id="hiddenAnimal" value="Chicken">
 
-        <br>
+                <br>
 
-        <label for="guessAnimal">Guess the animal:</label>
-        <input type="text" id="guessAnimal">
+                <label for="guessAnimal">Guess the animal:</label>
+                <input type="text" id="guessAnimal">
 
-        <br>
+                <br>
 
-        <button type="button" onclick="checkAnimal()">Check the guess</button>
-    </form>
+                <button type="button" onclick="checkAnimal()">Check the guess</button>
+            </form>
 
-    <p id="results"></p>
+            <p id="results"></p>
 
-    <script>
-        
-        let wrong = 0;
-        let correct = 0;
+            <script>
 
-       
-        function checkAnimal() {
-            
-            const hiddenAnimalValue = document.getElementById('hiddenAnimal').value;
-            const guessAnimalValue = document.getElementById('guessAnimal').value;
+                let wrong = 0;
+                let correct = 0;
 
-            
-            if (hiddenAnimalValue === guessAnimalValue) {
-                correct++;
-                alert("Ruff ruff");
-            } else {
-                wrong++;
-                alert("Grrr");
-            }
 
-            document.getElementById('results').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
-        }
-    </script>
+                function checkAnimal() {
 
-    <div class="container">
-        <img src="mirinda.jpg" alt="mirinda" width="150px" onclick="selectImage()">
-    </div>
-    <script>
-        function selectImage() {
-            alert("You have clicked Image");
-        }
-    </script>
+                    const hiddenAnimalValue = document.getElementById('hiddenAnimal').value;
+                    const guessAnimalValue = document.getElementById('guessAnimal').value;
+
+
+                    if (hiddenAnimalValue === guessAnimalValue) {
+                        correct++;
+                        alert("Ruff ruff");
+                    } else {
+                        wrong++;
+                        alert("Grrr");
+                    }
+
+                    document.getElementById('results').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
+                }
+            </script>
+
+            <div class="container">
+                <img src="mirinda.jpg" alt="mirinda" width="150px" onclick="selectImage()">
+            </div>
+            <script>
+                function selectImage() {
+                    alert("You have clicked Image");
+                }
+            </script>
+            <script>
+                let useImage = 1;
+
+                function selectImage() {
+                    switch (useImage) {
+                        case 1:
+                            document.getElementById('selectedImage').src = "mirinda.jpg";
+                            useImage = 2;
+                            break;
+                        case 2:
+                            document.getElementById('selectedImage').src = "thums up.jpg";
+                            useImage = 3;
+                            break;
+                        case 3:
+                            document.getElementById('selectedImage').src = "appyfizz.jpg";
+                            useImage = 1;
+                            break;
+                    }
+                }
+            </script>
+            <button onclick="selectImage()">Change Image</button>
+
 
 </body>
 </body>
