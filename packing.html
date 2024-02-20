@@ -42,54 +42,33 @@
             document.getElementById("results").innerHTML = JSON.stringify(my_pack);
         }
         </script>
-      <form id="textInputForm">
-        <div class="form-group">
-          <label for="travelMonth">Enter travel month</label>
-          <input type="text" id="travelMonth" value="May">
-        </div>
-    
-        <div class="form-group">
-          <label for="tripPrice">Enter price</label>
-          <input type="text" id="tripPrice">
-        </div>
-    
-        <button type="button" onclick="updatePack()">Update the pack</button>
+         <form id="checkboxForm">
       </form>
-    
-      <div id="results"></div>
-    
+  
+      <form id="updateForm">
+          <label for="monthInput">Enter travel month:</label>
+          <input type="text" id="monthInput" value="May">
+  
+          <label for="priceInput">Enter price:</label>
+          <input type="text" id="priceInput">
+  
+          <button type="button" onclick="updatePack()">Update the pack</button>
+      </form>
+  
+      <div id="taggedElement">
+      </div>
+  
       <script>
-        let my_pack = {};
-    
-        function selectPack() {
-          my_pack = {};
-    
-          my_pack.light = document.getElementById("checkbox1").checked;
-          my_pack.carry = document.getElementById("checkbox2").checked;
-          my_pack.tablet = document.getElementById("checkbox3").checked;
-    
-          document.getElementById("results").innerHTML = JSON.stringify(my_pack);
-        }
-    
-        // Step 4
-        function updatePack() {
-          // Step 4a
-          const month = document.getElementById("travelMonth").value;
-    
-          // Step 4b
-          const price = document.getElementById("tripPrice").value;
-    
-          // Step 4c
-          my_pack["month"] = month;
-          my_pack["price"] = price;
-    
-          // Step 4d
-          document.getElementById("results").innerHTML = JSON.stringify(my_pack);
-        }
+  
+          function updatePack() {
+              var monthValue = document.getElementById('monthInput').value;
+              var priceValue = document.getElementById('priceInput').value;
+  
+              my_pack.month = monthValue;
+              my_pack.price = parseFloat(priceValue);
+  
+              document.getElementById('taggedElement').innerHTML = JSON.stringify(my_pack);
+          }
       </script>
-    
-    </body>
-   
 </body>
-
 </html>
