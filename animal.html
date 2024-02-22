@@ -38,14 +38,12 @@
                         wrong++;
                         alert("Grrr");
                     }
-                      if(wrong>correct)
-        {
-            alert("Sorry, too many wrong guesses.");
-            document.getElementById("demo").innerHTML =  "Sorry, too many wrong guesses.";
-        }
-    }
-                    document.getElementById('results').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
+                    if (wrong > correct) {
+                        alert("Sorry, too many wrong guesses.");
+                        document.getElementById("demo").innerHTML = "Sorry, too many wrong guesses.";
+                    }
                 }
+                document.getElementById('results').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
             </script>
             <div id="imageContainer">
                 <img id="drinkImage" src="thums up.jpg" width="150" height="150" onclick="selectImage()">
