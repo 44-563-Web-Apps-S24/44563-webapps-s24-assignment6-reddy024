@@ -1,100 +1,100 @@
 <html>
+
 <head>
     <title>
         Discount Communications
     </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </head>
 
 <!DOCTYPE html>
+
 <head>
     <title>Price Calculator</title>
 </head>
+
 <body>
-<label for="price">Enter price per:</label>
-<input type="number" id="price" value="10">
+    <label for="price">Enter price per:</label>
+    <input type="number" id="price" value="10">
 
-<label for="count">Enter the number of items:</label>
-<input type="number" id="count" value="9">
+    <label for="count">Enter the number of items:</label>
+    <input type="number" id="count" value="9">
 
-<label for="reductions">Enter the discount percent:</label>
-<input type="number" id="reductions" value="5">
+    <label for="reductions">Enter the discount percent:</label>
+    <input type="number" id="reductions" value="5">
 
-<button onclick="discount()">Show total</button>
+    <button onclick="discount()">Show total</button>
 
-<p id="results"></p>
+    <p id="results"></p>
 
-<script>
-    function discount() {
-        let price = parseFloat(document.getElementById('price').value);
-        let count = parseInt(document.getElementById('count').value);
-        let reductions = parseInt(document.getElementById('reductions').value);
+    <script>
+        function discount() {
+            let price = parseFloat(document.getElementById('price').value);
+            let count = parseInt(document.getElementById('count').value);
+            let reductions = parseInt(document.getElementById('reductions').value);
 
-        let toShow = "";
+            let toShow = "";
 
-        for (let i = 0; i < 5; i++) {
-            let discountPercentage = reductions + i;
-            let total = price * count * (1 - discountPercentage / 100);
+            for (let i = 0; i < 5; i++) {
+                let discountPercentage = reductions + i;
+                let total = price * count * (1 - discountPercentage / 100);
 
-            toShow += discountPercentage + "% is " + total.toFixed(2) + "; ";
+                toShow += discountPercentage + "% is " + total.toFixed(2) + "; ";
+            }
+
+            document.getElementById('results').innerHTML = "Totals are: " + toShow;
         }
+    </script>
+    <form>
+        <label>
+            <input type="radio" name="operation" value="sum" onclick="chooseOp()">
+            Sum
+        </label>
+        <label>
+            <input type="radio" name="operation" value="multiply" onclick="chooseOp()">
+            Multiply
+        </label>
+        <label>
+            <input type="radio" name="operation" value="exponent" onclick="chooseOp()">
+            Exponent
+        </label>
+    </form>
 
-        document.getElementById('results').innerHTML = "Totals are: " + toShow;
-    }
-</script>
-<form>
-    <label>
-        <input type="radio" name="operation" value="sum" onclick="chooseOp()">
-        Sum
-    </label>
-    <label>
-        <input type="radio" name="operation" value="multiply" onclick="chooseOp()">
-        Multiply
-    </label>
-    <label>
-        <input type="radio" name="operation" value="exponent" onclick="chooseOp()">
-        Exponent
-    </label>
-</form>
+    <p id="results"></p>
 
-<p id="results"></p>
+    <script>
+        function chooseOp() {
+            let price = parseFloat(document.getElementById('price').value);
+            let count = parseInt(document.getElementById('count').value);
+            let reductions = parseInt(document.getElementById('reductions').value);
 
-<script>
-    function chooseOp() {
-        let price = parseFloat(document.getElementById('price').value);
-        let count = parseInt(document.getElementById('count').value);
-        let reductions = parseInt(document.getElementById('reductions').value);
+            let selectedOperation = document.querySelector('input[name="operation"]:checked').value;
 
-        let selectedOperation = document.querySelector('input[name="operation"]:checked').value;
+            let result;
+            switch (selectedOperation) {
+                case 'sum':
+                    result = price + count;
+                    break;
+                case 'multiply':
+                    result = price * count;
+                    break;
+                case 'exponent':
+                    result = Math.pow(price, count);
+                    break;
+                default:
+                    break;
+            }
 
-        let result;
-        switch (selectedOperation) {
-            case 'sum':
-                result = price + count;
-                break;
-            case 'multiply':
-                result = price * count;
-                break;
-            case 'exponent':
-                result = Math.pow(price, count);
-                break;
-            default:
-                break;
+            document.getElementById('results').innerHTML = "Result of " + selectedOperation + " is " + result;
         }
-
-        document.getElementById('results').innerHTML = "Result of " + selectedOperation + " is " + result;
-    }
-</script>
+    </script>
 </body>
+
 </html>
-
-
-
-
-
-
