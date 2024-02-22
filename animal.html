@@ -34,6 +34,12 @@
                         wrong++;
                         alert("Grrr");
                     }
+                      if(wrong>correct)
+        {
+            alert("Sorry, too many wrong guesses.");
+            document.getElementById("demo").innerHTML =  "Sorry, too many wrong guesses.";
+        }
+    }
                     document.getElementById('results').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
                 }
             </script>
